@@ -1,11 +1,12 @@
 const Headers =(header) =>  <h1> {header.name} </h1> ;
 
-const Body = ({part, exercise}) => <p>{part}, {exercise}</p> 
+const Body = ({part, exercise}) => <p>{part}, {exercise}</p>;
 
-const Total = ({ parts }) => {
-  const total = parts[0].exercises + parts[1].exercises + parts[2].exercises;
+const Total = ({parts}) => {
+  const total = parts.reduce((sum, part) => sum + part.exercises, 0);
   return <p>Total of exercises: {total}</p>;
 };
+
 const App = () => {
   const course = {
     name: 'Half Stack application development', 
